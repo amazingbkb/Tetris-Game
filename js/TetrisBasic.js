@@ -41,7 +41,7 @@ let gameBoardArray = [...Array(20)].map(e => Array(12).fill(0));
 // It will hold colors when a shape stops and is added
 let stoppedShapeArray = [...Array(20)].map(e => Array(12).fill(0));
 
-// 4. Created to track the direction I'm moving the Tetromino
+// Created to track the direction I'm moving the Tetromino
 // so that I can stop trying to move through walls
 let DIRECTION = {
     IDLE: 0,
@@ -57,6 +57,12 @@ class Coordinates{
         this.y = y;
     }
 }
+
+// Adding background music
+var background = new Audio('sounds/background.mp3')
+window.onload = function() {
+    background.play();
+};
 
 // Execute SetupCanvas when page loads
 document.addEventListener('DOMContentLoaded', SetupCanvas); 
@@ -153,6 +159,7 @@ function SetupCanvas(){
     CreateCoordArray();
 
     DrawTetromino();
+
 }
 
 function DrawTetrisLogo(){
